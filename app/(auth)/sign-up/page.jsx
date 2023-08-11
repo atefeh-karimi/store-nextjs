@@ -201,14 +201,17 @@ export default function SignUp() {
                 </div>
               </div>
             </div>
+            <div>
+              <button
+                type="submit"
+                className="flex w-full justify-center mt-5 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Sign up
+              </button>
+            </div>
           </div>
 
           {/* sign up button  */}
-          <div className="flex justify-end w-full mt-3">
-            <button className="px-2 py-1.5 bg-indigo-600 text-white rounded-md">
-              Sign up
-            </button>
-          </div>
         </div>
       </form>
     </div>
