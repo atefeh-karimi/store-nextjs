@@ -9,6 +9,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import SearchModal from "./SearchModal";
 
 const navigation = {
   categories: [
@@ -146,6 +147,15 @@ function classNames(...classes) {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  let [isOpenModal, setIsOpenModal] = useState(false);
+
+  function closeModal() {
+    setIsOpenModal(false);
+  }
+
+  function openModal() {
+    setIsOpenModal(true);
+  }
 
   return (
     <div className="bg-white">
@@ -315,7 +325,7 @@ export default function Header() {
         </Dialog>
       </Transition.Root>
 
-      <header className="relative bg-white">
+      <header className="relative z-50 bg-white">
         <p className="flex items-center justify-center h-10 px-4 text-sm font-medium text-white bg-indigo-600 sm:px-6 lg:px-8">
           Get free delivery on orders over $100
         </p>
@@ -493,10 +503,16 @@ export default function Header() {
                     <span className="sr-only">Search</span>
                     <MagnifyingGlassIcon
                       className="w-6 h-6"
+                      onClick={openModal}
                       aria-hidden="true"
                     />
                   </a>
                 </div>
+
+                <SearchModal
+                  isOpenModal={isOpenModal}
+                  setIsOpenModal={setIsOpenModal}
+                />
 
                 {/* Cart */}
                 <div className="flow-root ml-4 lg:ml-6">
