@@ -10,6 +10,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import SearchModal from "./SearchModal";
+import Link from "next/link";
 
 const navigation = {
   categories: [
@@ -39,38 +40,38 @@ const navigation = {
           id: "clothing",
           name: "Clothing",
           items: [
-            { name: "Tops", href: "#" },
-            { name: "Dresses", href: "#" },
-            { name: "Pants", href: "#" },
-            { name: "Denim", href: "#" },
-            { name: "Sweaters", href: "#" },
-            { name: "T-Shirts", href: "#" },
-            { name: "Jackets", href: "#" },
-            { name: "Activewear", href: "#" },
-            { name: "Browse All", href: "#" },
+            { name: "Tops" },
+            { name: "Dresses" },
+            { name: "Pants" },
+            { name: "Denim" },
+            { name: "Sweaters" },
+            { name: "T-Shirts" },
+            { name: "Jackets" },
+            { name: "Activewear" },
+            { name: "BrowseAll" },
           ],
         },
         {
           id: "accessories",
           name: "Accessories",
           items: [
-            { name: "Watches", href: "#" },
-            { name: "Wallets", href: "#" },
-            { name: "Bags", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Hats", href: "#" },
-            { name: "Belts", href: "#" },
+            { name: "Watches" },
+            { name: "Wallets" },
+            { name: "Bags" },
+            { name: "Sunglasses" },
+            { name: "Hats" },
+            { name: "Belts" },
           ],
         },
         {
           id: "brands",
           name: "Brands",
           items: [
-            { name: "Full Nelson", href: "#" },
-            { name: "My Way", href: "#" },
-            { name: "Re-Arranged", href: "#" },
-            { name: "Counterfeit", href: "#" },
-            { name: "Significant Other", href: "#" },
+            { name: "Full Nelson" },
+            { name: "My Way" },
+            { name: "Re-Arranged" },
+            { name: "Counterfeit" },
+            { name: "Significant Other" },
           ],
         },
       ],
@@ -101,43 +102,43 @@ const navigation = {
           id: "clothing",
           name: "Clothing",
           items: [
-            { name: "Tops", href: "#" },
-            { name: "Pants", href: "#" },
-            { name: "Sweaters", href: "#" },
-            { name: "T-Shirts", href: "#" },
-            { name: "Jackets", href: "#" },
-            { name: "Activewear", href: "#" },
-            { name: "Browse All", href: "#" },
+            { name: "Tops" },
+            { name: "Pants" },
+            { name: "Sweaters" },
+            { name: "T-Shirts" },
+            { name: "Jackets" },
+            { name: "Activewear" },
+            { name: "Browse All" },
           ],
         },
         {
           id: "accessories",
           name: "Accessories",
           items: [
-            { name: "Watches", href: "#" },
-            { name: "Wallets", href: "#" },
-            { name: "Bags", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Hats", href: "#" },
-            { name: "Belts", href: "#" },
+            { name: "Watches" },
+            { name: "Wallets" },
+            { name: "Bags" },
+            { name: "Sunglasses" },
+            { name: "Hats" },
+            { name: "Belts" },
           ],
         },
         {
           id: "brands",
           name: "Brands",
           items: [
-            { name: "Re-Arranged", href: "#" },
-            { name: "Counterfeit", href: "#" },
-            { name: "Full Nelson", href: "#" },
-            { name: "My Way", href: "#" },
+            { name: "Re-Arranged" },
+            { name: "Counterfeit" },
+            { name: "Full Nelson" },
+            { name: "My Way" },
           ],
         },
       ],
     },
   ],
   pages: [
-    { name: "Company", href: "#" },
-    { name: "Stores", href: "#" },
+    { name: "Category", href: "/products/category" },
+    { name: "Stores", href: "/stores" },
   ],
 };
 
@@ -290,12 +291,12 @@ export default function Header() {
                 <div className="px-4 py-6 space-y-6 border-t border-gray-200">
                   {navigation.pages.map((page) => (
                     <div key={page.name} className="flow-root">
-                      <a
+                      <Link
                         href={page.href}
                         className="block p-2 -m-2 font-medium text-gray-900"
                       >
                         {page.name}
-                      </a>
+                      </Link>
                     </div>
                   ))}
                 </div>
@@ -390,6 +391,7 @@ export default function Header() {
                               <div className="relative bg-white">
                                 <div className="px-8 mx-auto max-w-7xl">
                                   <div className="grid grid-cols-2 py-16 gap-x-8 gap-y-10">
+                                    {/* image item */}
                                     <div className="grid grid-cols-2 col-start-2 gap-x-8">
                                       {category.featured.map((item) => (
                                         <div
@@ -425,6 +427,7 @@ export default function Header() {
                                         </div>
                                       ))}
                                     </div>
+                                    {/* list item */}
                                     <div className="grid grid-cols-3 row-start-1 text-sm gap-x-8 gap-y-10">
                                       {category.sections.map((section) => (
                                         <div key={section.name}>
@@ -444,12 +447,12 @@ export default function Header() {
                                                 key={item.name}
                                                 className="flex"
                                               >
-                                                <a
-                                                  href={item.href}
+                                                <Link
+                                                  href={`/products/${item.name}`}
                                                   className="hover:text-gray-800"
                                                 >
                                                   {item.name}
-                                                </a>
+                                                </Link>
                                               </li>
                                             ))}
                                           </ul>
@@ -468,13 +471,13 @@ export default function Header() {
 
                   {/* other item menu */}
                   {navigation.pages.map((page) => (
-                    <a
+                    <Link
                       key={page.name}
                       href={page.href}
                       className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       {page.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </Popover.Group>
