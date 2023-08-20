@@ -53,6 +53,7 @@ export default function Cart() {
                       width="0"
                       height="0"
                       sizes="100vh"
+                      priority="true"
                       className="object-cover object-center w-full h-full"
                     />
                   </div>
