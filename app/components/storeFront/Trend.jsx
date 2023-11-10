@@ -46,7 +46,7 @@ const categories = [
       "https://tailwindui.com/img/ecommerce-images/home-page-01-category-04.jpg",
   },
   {
-    name: "Accessories",
+    name: "Accessory",
     href: "#",
     imageSrc:
       "https://tailwindui.com/img/ecommerce-images/home-page-01-category-05.jpg",
@@ -58,13 +58,13 @@ const categories = [
       "https://tailwindui.com/img/ecommerce-images/home-page-01-category-03.jpg",
   },
   {
-    name: "New Arrivals",
+    name: "New Arrival",
     href: "#",
     imageSrc:
       "https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-01.jpg",
   },
   {
-    name: "Basic Tees",
+    name: "Basic Tee",
     href: "#",
     imageSrc:
       "https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-02.jpg",
@@ -90,14 +90,22 @@ function Trend() {
       </div>
       <div className="box-content relative py-2 mx-auto mt-8 overflow-x-auto f h-80 xl:overflow-visible">
         <Swiper
-          slidesPerView={5}
-          spaceBetween={30}
+          breakpoints={{
+            1024: {
+              slidesPerView: 3,
+            },
+            1440: {
+              slidesPerView: 5,
+            },
+          }}
+          slidesPerView={1.5}
+          spaceBetween={15}
           freeMode={true}
           pagination={{
             clickable: true,
           }}
           modules={[FreeMode, Pagination]}
-          className="absolute flex px-4 space-x-8 sm:px-6 lg:px-8 xl:relative xl:grid xl:grid-cols-5 xl:gap-x-8 xl:space-x-0 xl:px-0"
+          className="absolute flex grid-cols-1 px-4 space-x-8 sm:px-6 lg:px-8 xl:relative xl:grid xl:grid-cols-5 xl:gap-x-8 xl:space-x-0 xl:px-0"
         >
           {categories.map((category) => (
             <SwiperSlide key={category.name}>
