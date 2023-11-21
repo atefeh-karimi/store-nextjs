@@ -1,5 +1,8 @@
+"use client";
+
 import { CheckIcon, ClockIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
+import { useCartContext } from "../context";
 
 const products = [
   {
@@ -29,6 +32,9 @@ const products = [
 ];
 
 export default function Cart() {
+  const { handleAddToCart, cartItems } = useCartContext();
+  console.log("cartItems", cartItems);
+
   return (
     <div className="bg-white">
       <div className="max-w-4xl px-4 py-16 mx-auto sm:px-6 sm:py-24 lg:px-8">

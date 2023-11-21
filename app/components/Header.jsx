@@ -519,7 +519,10 @@ export default function Header() {
 
                 {/* Cart */}
                 <div className="flow-root ml-4 lg:ml-6">
-                  <a href="/cart" className="flex items-center p-2 -m-2 group">
+                  <Link
+                    href="/cart"
+                    className="flex items-center p-2 -m-2 group"
+                  >
                     <ShoppingBagIcon
                       className="flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
@@ -528,7 +531,7 @@ export default function Header() {
                       0
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
