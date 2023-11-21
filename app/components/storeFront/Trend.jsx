@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import { FreeMode, Pagination } from "swiper/modules";
+import { Autoplay, FreeMode, Pagination } from "swiper/modules";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -101,10 +101,17 @@ function Trend() {
           slidesPerView={1.5}
           spaceBetween={15}
           freeMode={true}
+          grabCursor={true}
+          loop={true}
+          speed={1200}
+          autoplay={{
+            delay: 100,
+            disableOnInteraction: false,
+          }}
           pagination={{
             clickable: true,
           }}
-          modules={[FreeMode, Pagination]}
+          modules={[Autoplay, FreeMode, Pagination]}
           className="absolute flex grid-cols-1 px-4 space-x-8 sm:px-6 lg:px-8 xl:relative xl:grid xl:grid-cols-5 xl:gap-x-8 xl:space-x-0 xl:px-0"
         >
           {categories.map((category) => (
