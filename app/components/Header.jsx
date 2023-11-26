@@ -4,12 +4,10 @@ import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
   BuildingStorefrontIcon,
-  MagnifyingGlassIcon,
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import SearchModal from "./SearchModal";
 import Link from "next/link";
 
 const navigation = {
@@ -148,15 +146,6 @@ function classNames(...classes) {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  let [isOpenModal, setIsOpenModal] = useState(false);
-
-  function closeModal() {
-    setIsOpenModal(false);
-  }
-
-  function openModal() {
-    setIsOpenModal(true);
-  }
 
   return (
     <div className="bg-white">
@@ -495,23 +484,6 @@ export default function Header() {
                     Create account
                   </a>
                 </div>
-
-                {/* Search */}
-                <div className="flex lg:ml-6">
-                  <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Search</span>
-                    <MagnifyingGlassIcon
-                      className="w-6 h-6"
-                      onClick={openModal}
-                      aria-hidden="true"
-                    />
-                  </a>
-                </div>
-
-                <SearchModal
-                  isOpenModal={isOpenModal}
-                  setIsOpenModal={setIsOpenModal}
-                />
 
                 {/* Cart */}
                 <div className="flow-root ml-4 lg:ml-6">
