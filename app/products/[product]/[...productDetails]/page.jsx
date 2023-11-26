@@ -71,6 +71,7 @@ const product = {
     "Machine wash cold with similar colors",
   ],
 };
+
 const policies = [
   {
     name: "International delivery",
@@ -91,10 +92,12 @@ function classNames(...classes) {
 export default function ProductDetails() {
   const { handleAddToCart, cartItems } = useCartContext();
   const params = useParams();
+  console.log(params);
   const router = useRouter();
-  const ProducName = params.productDetails[0].replace(/%20/g, " ");
+  const ProducName = decodeURIComponent(params.productDetails[0]);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
+
   const productFake = {
     id: 1,
     name: ProducName,
@@ -102,6 +105,7 @@ export default function ProductDetails() {
     size: selectedSize,
     price: product.price,
   };
+
   console.log(selectedColor);
   return (
     <div className="bg-white">
