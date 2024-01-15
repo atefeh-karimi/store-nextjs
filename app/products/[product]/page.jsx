@@ -134,7 +134,6 @@ export default function Product({ params }) {
                 <div>
                   <h3 className="text-sm text-gray-700">
                     <Link href={`${params.product}/${product.name}`}>
-                      <span className="text-red-500"></span>
                       <span aria-hidden="true" className="absolute inset-0" />
                       {product.name}
                     </Link>

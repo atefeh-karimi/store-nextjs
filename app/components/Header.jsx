@@ -293,20 +293,20 @@ export default function Header() {
                 {/* Sign in - create account */}
                 <div className="px-4 py-6 space-y-6 border-t border-gray-200">
                   <div className="flow-root">
-                    <a
-                      href="/sign-in"
+                    <Link
+                      href="/sing-in"
                       className="block p-2 -m-2 font-medium text-gray-900"
                     >
                       Sign in
-                    </a>
+                    </Link>
                   </div>
                   <div className="flow-root">
-                    <a
+                    <Link
                       href="sign-up"
                       className="block p-2 -m-2 font-medium text-gray-900"
                     >
                       Create account
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </Dialog.Panel>
@@ -331,10 +331,10 @@ export default function Header() {
 
               {/* Logo */}
               <div className="flex ml-4 text-indigo-500 lg:ml-0">
-                <a href="/">
-                  <span className="sr-only">Your Company</span>
+                <Link href="/">
+                  <span className="sr-only">store logo</span>
                   <BuildingStorefrontIcon className="w-8 h-8" />
-                </a>
+                </Link>
               </div>
 
               {/* Flyout menus */}
@@ -470,19 +470,19 @@ export default function Header() {
               <div className="flex items-center ml-auto">
                 {/* Sign in - create account */}
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a
+                  <Link
                     href="/sign-in"
                     className="text-sm font-medium text-gray-700 hover:text-gray-800"
                   >
                     Sign in
-                  </a>
+                  </Link>
                   <span className="w-px h-6 bg-gray-200" aria-hidden="true" />
-                  <a
+                  <Link
                     href="/sign-up"
                     className="text-sm font-medium text-gray-700 hover:text-gray-800"
                   >
                     Create account
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Cart */}
