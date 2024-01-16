@@ -33,7 +33,7 @@ const products = [
 
 export default function Cart() {
   const { handleAddToCart, cartItems } = useCartContext();
-  console.log("cartItems", cartItems);
+  console.log({ cartItems });
 
   return (
     <div className="bg-white">
@@ -45,6 +45,10 @@ export default function Cart() {
         <form className="mt-12">
           <div>
             <h2 className="sr-only">Items in your shopping cart</h2>
+
+            {cartItems.map((item) => (
+              <h1 key={item.id}>{item.name}</h1>
+            ))}
 
             <ul
               role="list"

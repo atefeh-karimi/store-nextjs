@@ -7,69 +7,8 @@ import "swiper/css/pagination";
 import { Autoplay, FreeMode, Pagination } from "swiper/modules";
 import Image from "next/image";
 import Link from "next/link";
+import { trend_products } from "@/public/assets/data";
 
-const categories = [
-  {
-    name: "Basic Tees",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg",
-  },
-  {
-    name: "Accessories",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/mega-menu-category-03.jpg",
-  },
-  {
-    name: "Carry",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/mega-menu-category-04.jpg",
-  },
-  {
-    name: "New Arrivals",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-01-category-01.jpg",
-  },
-  {
-    name: "Productivity",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-01-category-02.jpg",
-  },
-  {
-    name: "Workspace",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-01-category-04.jpg",
-  },
-  {
-    name: "Accessory",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-01-category-05.jpg",
-  },
-  {
-    name: "Sale",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-01-category-03.jpg",
-  },
-  {
-    name: "New Arrival",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-01.jpg",
-  },
-  {
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-02.jpg",
-  },
-];
 function Trend() {
   return (
     <div className="px-4 py-24 mx-auto max-w-7xl sm:px-6 sm:py-32 lg:px-8">
@@ -114,15 +53,15 @@ function Trend() {
           modules={[Autoplay, FreeMode, Pagination]}
           className="absolute flex grid-cols-1 px-4 space-x-8 sm:px-6 lg:px-8 xl:relative xl:grid xl:grid-cols-5 xl:gap-x-8 xl:space-x-0 xl:px-0"
         >
-          {categories.map((category) => (
-            <SwiperSlide key={category.name}>
+          {trend_products.map((product) => (
+            <SwiperSlide key={product.name}>
               <a
-                href={category.href}
+                href={product.href}
                 className="relative flex flex-col w-56 p-6 overflow-hidden rounded-lg h-80 hover:opacity-75 xl:w-auto"
               >
                 <span aria-hidden="true" className="absolute inset-0">
                   <Image
-                    src={category.imageSrc}
+                    src={product.imageSrc}
                     alt=""
                     width="0"
                     height="0"
@@ -135,7 +74,7 @@ function Trend() {
                   className="absolute inset-x-0 bottom-0 opacity-50 h-2/3 bg-gradient-to-t from-gray-800"
                 />
                 <span className="relative mt-auto text-xl font-bold text-center text-white">
-                  {category.name}
+                  {product.name}
                 </span>
               </a>
             </SwiperSlide>
