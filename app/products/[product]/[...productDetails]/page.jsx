@@ -1,5 +1,5 @@
 "use client";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
@@ -16,12 +16,11 @@ export default function ProductDetails() {
   const { handleAddToCart, cartItems } = useCartContext();
   const params = useParams();
   const router = useRouter();
+  const productUrl = usePathname();
   const ProducName = decodeURIComponent(params.productDetails[0]);
   const product = products_details.filter((item) => item.name === ProducName);
-  console.log({ product });
   const [selectedColor, setSelectedColor] = useState(product[0].colors[0]);
   const [selectedSize, setSelectedSize] = useState(product[0].sizes[2]);
-
   return (
     <div className="bg-white">
       <div className="pt-6 pb-16 sm:pb-24">
@@ -233,7 +232,16 @@ export default function ProductDetails() {
                 {/* Add to cart button */}
                 <Link
                   href=""
-                  onClick={() => handleAddToCart(product[0])}
+                  onClick={() =>
+                    handleAddToCart({
+                      price: product[0].price,
+                      image: product[0].images[0].imageSrc,
+                      name: product[0].name,
+                      color: selectedColor,
+                      size: selectedSize,
+                      productUrl: productUrl,
+                    })
+                  }
                   className="flex items-center justify-center w-full px-8 py-3 mt-8 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   Add to cart
