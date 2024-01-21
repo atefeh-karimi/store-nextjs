@@ -19,7 +19,7 @@ function EmptyCart() {
         <h1 className="text-5xl">Your Cart is Empty!</h1>
         <Link
           className="px-5 py-2 font-bold text-white uppercase bg-blue-500 border border-blue-500 rounded-md "
-          href="/products"
+          href="/"
         >
           return to shop
         </Link>
