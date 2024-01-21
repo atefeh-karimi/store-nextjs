@@ -217,7 +217,7 @@ export const men_products = [
     id: 2,
     name: "Basic Tee",
     href: "#",
-    price: "$32",
+    price: "$64",
     description:
       "Look like a visionary CEO and wear the same black t-shirt every day.",
     options: "Black",
@@ -229,7 +229,7 @@ export const men_products = [
     id: 3,
     name: "Basic Tee-Men-1",
     href: "#",
-    price: "$32",
+    price: "$35",
     description:
       "Look like a visionary CEO and wear the same black t-shirt every day.",
     options: "Black",
@@ -253,7 +253,7 @@ export const men_products = [
     id: 5,
     name: "Basic Tee 3-Pack",
     href: "#",
-    price: "$32",
+    price: "$320",
     description:
       "Look like a visionary CEO and wear the same black t-shirt every day.",
     options: "Black",
@@ -266,14 +266,9 @@ export const men_products = [
 export const products_details = [
   {
     name: "Basic Tee-1",
-    price: "$50",
+    price: "50",
     rating: 3.9,
-    reviewCount: 512,
-    href: "#",
-    breadcrumbs: [
-      { id: 1, name: "Women", href: "#" },
-      { id: 2, name: "Clothing", href: "#" },
-    ],
+    reviewCount: 237,
     images: [
       {
         id: 1,
@@ -326,14 +321,10 @@ export const products_details = [
   },
   {
     name: "New Arrivals-2",
-    price: "$28",
-    rating: 1.9,
-    reviewCount: 512,
-    href: "#",
-    breadcrumbs: [
-      { id: 1, name: "Women", href: "#" },
-      { id: 2, name: "Clothing", href: "#" },
-    ],
+    price: "28",
+    rating: 3.5,
+    reviewCount: 147,
+
     images: [
       {
         id: 1,
@@ -386,14 +377,9 @@ export const products_details = [
   },
   {
     name: "Basic Tees-3",
-    price: "$59",
-    rating: 1.9,
-    reviewCount: 512,
-    href: "#",
-    breadcrumbs: [
-      { id: 1, name: "Women", href: "#" },
-      { id: 2, name: "Clothing", href: "#" },
-    ],
+    price: "59",
+    rating: 4.1,
+    reviewCount: 98,
     images: [
       {
         id: 1,
@@ -446,14 +432,10 @@ export const products_details = [
   },
   {
     name: "Basic Tee-4",
-    price: "$43",
-    rating: 1.9,
-    reviewCount: 512,
-    href: "#",
-    breadcrumbs: [
-      { id: 1, name: "Women", href: "#" },
-      { id: 2, name: "Clothing", href: "#" },
-    ],
+    price: "43",
+    rating: 3.1,
+    reviewCount: 45,
+
     images: [
       {
         id: 1,
@@ -506,14 +488,9 @@ export const products_details = [
   },
   {
     name: "Basic Tee-5",
-    price: "$30",
-    rating: 1.9,
-    reviewCount: 512,
-    href: "#",
-    breadcrumbs: [
-      { id: 1, name: "Women", href: "#" },
-      { id: 2, name: "Clothing", href: "#" },
-    ],
+    price: "30",
+    rating: 2.3,
+    reviewCount: 127,
     images: [
       {
         id: 1,
@@ -566,14 +543,9 @@ export const products_details = [
   },
   {
     name: "Basic Tee-6",
-    price: "$15",
-    rating: 1.9,
-    reviewCount: 512,
-    href: "#",
-    breadcrumbs: [
-      { id: 1, name: "Women", href: "#" },
-      { id: 2, name: "Clothing", href: "#" },
-    ],
+    price: "15",
+    rating: 1,
+    reviewCount: 12,
     images: [
       {
         id: 1,
@@ -626,14 +598,9 @@ export const products_details = [
   },
   {
     name: "New Arrivals",
-    price: "$35",
-    rating: 1.9,
-    reviewCount: 512,
-    href: "#",
-    breadcrumbs: [
-      { id: 1, name: "Women", href: "#" },
-      { id: 2, name: "Clothing", href: "#" },
-    ],
+    price: "35",
+    rating: 4.9,
+    reviewCount: 100,
     images: [
       {
         id: 1,
@@ -686,14 +653,9 @@ export const products_details = [
   },
   {
     name: "Basic Tees-7",
-    price: "$45",
-    rating: 1.9,
-    reviewCount: 512,
-    href: "#",
-    breadcrumbs: [
-      { id: 1, name: "Women", href: "#" },
-      { id: 2, name: "Clothing", href: "#" },
-    ],
+    price: "45",
+    rating: 0.9,
+    reviewCount: 310,
     images: [
       {
         id: 1,
@@ -746,14 +708,9 @@ export const products_details = [
   },
   {
     name: "Basic Tee-8",
-    price: "$35",
+    price: "35",
     rating: 1.9,
     reviewCount: 512,
-    href: "#",
-    breadcrumbs: [
-      { id: 1, name: "Women", href: "#" },
-      { id: 2, name: "Clothing", href: "#" },
-    ],
     images: [
       {
         id: 1,
@@ -806,14 +763,9 @@ export const products_details = [
   },
   {
     name: "Basic Tee-9",
-    price: "$50",
+    price: "50",
     rating: 1.9,
     reviewCount: 512,
-    href: "#",
-    breadcrumbs: [
-      { id: 1, name: "Women", href: "#" },
-      { id: 2, name: "Clothing", href: "#" },
-    ],
     images: [
       {
         id: 1,
@@ -866,14 +818,9 @@ export const products_details = [
   },
   {
     name: "Basic Tee 8-Pack",
-    price: "$256",
+    price: "256",
     rating: 1.9,
     reviewCount: 512,
-    href: "#",
-    breadcrumbs: [
-      { id: 1, name: "Men", href: "#" },
-      { id: 2, name: "Clothing", href: "#" },
-    ],
     images: [
       {
         id: 1,
@@ -926,14 +873,9 @@ export const products_details = [
   },
   {
     name: "Basic Tee",
-    price: "$256",
+    price: "64",
     rating: 1.9,
     reviewCount: 512,
-    href: "#",
-    breadcrumbs: [
-      { id: 1, name: "Men", href: "#" },
-      { id: 2, name: "Clothing", href: "#" },
-    ],
     images: [
       {
         id: 1,
@@ -986,7 +928,7 @@ export const products_details = [
   },
   {
     name: "Basic Tee-Men-2",
-    price: "$256",
+    price: "32",
     rating: 2.9,
     reviewCount: 512,
     images: [
@@ -1021,12 +963,12 @@ export const products_details = [
       },
     ],
     sizes: [
-      { name: "XXS", inStock: true },
+      { name: "XXS", inStock: false },
       { name: "XS", inStock: true },
       { name: "S", inStock: true },
       { name: "M", inStock: true },
       { name: "L", inStock: true },
-      { name: "XL", inStock: false },
+      { name: "XL", inStock: true },
     ],
     description: `
     <p>The Basic tee is an honest new take on a classic. The tee uses super soft, pre-shrunk cotton for true comfort and a dependable fit. They are hand cut and sewn locally, with a special dye technique that gives each tee it's own look.</p>
@@ -1041,14 +983,9 @@ export const products_details = [
   },
   {
     name: "Basic Tee-Men-1",
-    price: "$256",
+    price: "35",
     rating: 1.9,
     reviewCount: 512,
-    href: "#",
-    breadcrumbs: [
-      { id: 1, name: "Men", href: "#" },
-      { id: 2, name: "Clothing", href: "#" },
-    ],
     images: [
       {
         id: 1,
@@ -1083,7 +1020,7 @@ export const products_details = [
     sizes: [
       { name: "XXS", inStock: true },
       { name: "XS", inStock: true },
-      { name: "S", inStock: true },
+      { name: "S", inStock: false },
       { name: "M", inStock: true },
       { name: "L", inStock: true },
       { name: "XL", inStock: false },
@@ -1101,14 +1038,9 @@ export const products_details = [
   },
   {
     name: "Basic Tee 3-Pack",
-    price: "$256",
+    price: "$320",
     rating: 1.9,
     reviewCount: 512,
-    href: "#",
-    breadcrumbs: [
-      { id: 1, name: "Men", href: "#" },
-      { id: 2, name: "Clothing", href: "#" },
-    ],
     images: [
       {
         id: 1,

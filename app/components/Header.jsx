@@ -11,6 +11,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { navigation } from "@/public/assets/headerNavigation";
+import { useCartContext } from "../context";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -18,7 +19,7 @@ function classNames(...classes) {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-
+  const { cartItems } = useCartContext();
   return (
     <div className="bg-white">
       {/* Mobile menu */}
@@ -121,10 +122,10 @@ export default function Header() {
                 </Link>
               </div>
 
-              {/* Flyout menus */}
+              {/*  menus */}
               <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
                 <div className="flex h-full space-x-8">
-                  {/* other item menu */}
+                  {/* items menu */}
                   {navigation.pages.map((page) => (
                     <Link
                       key={page.name}
@@ -166,7 +167,7 @@ export default function Header() {
                       aria-hidden="true"
                     />
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                      0
+                      {cartItems.length}
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
                   </Link>

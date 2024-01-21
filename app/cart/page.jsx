@@ -1,21 +1,27 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { useCartContext } from "../context";
 import Link from "next/link";
 import EmptyCart from "../components/cart/EmptyCart";
 
 export default function Cart() {
-  const { handleAddToCart, cartItems } = useCartContext();
-  const [productList, setProductList] = useState(cartItems);
-  const handleRemoveClick = (product) => {
-    setProductList(productList.filter((p) => p.name != product.name));
-  };
+  const {
+    handleAddToCart,
+    handleDeleteOfCart,
+    cartItems,
+    handleUpdateQuantity,
+    getCartTotal,
+    getOrderTotalPrice,
+    calculateTaxes,
+    tax,
+    shipping,
+  } = useCartContext();
 
   return (
     <div className="bg-white">
       <div className="max-w-4xl px-4 py-16 mx-auto sm:px-6 sm:py-24 lg:px-8">
-        {productList.length ? (
+        {cartItems.length ? (
           <>
             <h1 className="text-3xl font-bold tracking-tight text-gray-900">
               Shopping Cart
@@ -27,7 +33,7 @@ export default function Cart() {
                   role="list"
                   className="border-t border-b border-gray-200 divide-y divide-gray-200"
                 >
-                  {productList.map((product, productIdx) => (
+                  {cartItems.map((product, productIdx) => (
                     <li key={product.id} className="flex py-6 sm:py-10">
                       <div className="flex-shrink-0 w-24 h-24 rounded-lg sm:h-32 sm:w-32">
                         <Image
@@ -64,7 +70,7 @@ export default function Cart() {
                             </div>
 
                             <p className="text-sm font-medium text-right text-gray-900">
-                              {product.price}
+                              ${product.price}
                             </p>
                           </div>
                           {/* Quantity */}
@@ -77,7 +83,9 @@ export default function Cart() {
                             </label>
                             <select
                               id={`quantity-${productIdx}`}
-                              name={`quantity-${productIdx}`}
+                              name={product.name}
+                              value={product.quantity}
+                              onChange={handleUpdateQuantity}
                               className="block max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                             >
                               <option value={1}>1</option>
@@ -92,7 +100,7 @@ export default function Cart() {
 
                             <button
                               type="button"
-                              onClick={() => handleRemoveClick(product)}
+                              onClick={() => handleDeleteOfCart(product)}
                               className="ml-4 text-sm font-medium text-indigo-600 hover:text-indigo-500 sm:ml-0 sm:mt-3"
                             >
                               <span>Remove</span>
@@ -114,22 +122,28 @@ export default function Cart() {
                     <dl className="-my-4 text-sm divide-y divide-gray-200">
                       <div className="flex items-center justify-between py-4">
                         <dt className="text-gray-600">Subtotal</dt>
-                        <dd className="font-medium text-gray-900">$99.00</dd>
+                        <dd className="font-medium text-gray-900">
+                          ${getCartTotal()}
+                        </dd>
                       </div>
                       <div className="flex items-center justify-between py-4">
                         <dt className="text-gray-600">Shipping</dt>
-                        <dd className="font-medium text-gray-900">$5.00</dd>
+                        <dd className="font-medium text-gray-900">
+                          ${shipping}
+                        </dd>
                       </div>
                       <div className="flex items-center justify-between py-4">
                         <dt className="text-gray-600">Tax</dt>
-                        <dd className="font-medium text-gray-900">$8.32</dd>
+                        <dd className="font-medium text-gray-900">
+                          ${calculateTaxes}
+                        </dd>
                       </div>
                       <div className="flex items-center justify-between py-4">
                         <dt className="text-base font-medium text-gray-900">
                           Order total
                         </dt>
                         <dd className="text-base font-medium text-gray-900">
-                          $112.32
+                          ${getOrderTotalPrice()}
                         </dd>
                       </div>
                     </dl>

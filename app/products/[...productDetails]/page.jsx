@@ -70,7 +70,7 @@ export default function ProductDetails() {
                   {ProducName}
                 </h1>
                 <p className="text-xl font-medium text-gray-900">
-                  {product[0]?.price}
+                  ${product[0]?.price}
                 </p>
               </div>
               {/* Reviews */}
