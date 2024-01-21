@@ -1,19 +1,14 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { products } from "@/public/assets/data";
+import { men_products } from "@/public/assets/data";
 
-export default function Product({ params }) {
-  console.log({ params });
+export default function MenProducts({ params }) {
   return (
-    <div className="bg-white">
-      <div className="max-w-2xl px-4 py-16 mx-auto sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-          Product name: {`${params.product.replace(/%20/g, " ")}`}
-        </h2>
+    <div className="bg-white ">
+      <div className="h-full max-w-2xl px-4 py-16 mx-auto sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <div className="grid grid-cols-1 mt-6 gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {products.map((product) => (
+          {men_products.map((product) => (
             <div key={product.id} className="relative group">
               <div className="w-full h-full bg-gray-200 rounded-md aspect-w-1 lg:aspect-none group-hover:opacity-75 ">
                 <Image
@@ -27,7 +22,7 @@ export default function Product({ params }) {
               </div>
               <div className="flex justify-between mt-2">
                 <h3 className="">
-                  <Link href={`${params.product}/${product.name}`}>
+                  <Link href={`men/${product.name}`}>
                     <span aria-hidden="true" className="absolute inset-0" />
                     {product.name}
                   </Link>

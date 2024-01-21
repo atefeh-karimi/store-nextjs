@@ -123,6 +123,8 @@ export const navigation = {
     },
   ],
   pages: [
+    { name: "Women", href: "/products/women" },
+    { name: "Men", href: "/products/men" },
     { name: "Category", href: "/products/category" },
     { name: "Stores", href: "/stores" },
   ],

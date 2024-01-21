@@ -17,10 +17,10 @@ export default function ProductDetails() {
   const params = useParams();
   const router = useRouter();
   const productUrl = usePathname();
-  const ProducName = decodeURIComponent(params.productDetails[0]);
+  const ProducName = decodeURIComponent(params.productDetails[1]);
   const product = products_details.filter((item) => item.name === ProducName);
-  const [selectedColor, setSelectedColor] = useState(product[0].colors[0]);
-  const [selectedSize, setSelectedSize] = useState(product[0].sizes[2]);
+  const [selectedColor, setSelectedColor] = useState(product[0]?.colors[0]);
+  const [selectedSize, setSelectedSize] = useState(product[0]?.sizes[2]);
   return (
     <div className="bg-white">
       <div className="pt-6 pb-16 sm:pb-24">
@@ -36,7 +36,7 @@ export default function ProductDetails() {
                   onClick={() => router.back(`products/${params.product}`)}
                   className="mr-4 text-sm font-medium text-gray-900"
                 >
-                  {params.product}
+                  {params.productDetails[0]}
                 </button>
                 <svg
                   viewBox="0 0 6 20"
@@ -70,7 +70,7 @@ export default function ProductDetails() {
                   {ProducName}
                 </h1>
                 <p className="text-xl font-medium text-gray-900">
-                  {product[0].price}
+                  {product[0]?.price}
                 </p>
               </div>
               {/* Reviews */}
@@ -78,7 +78,7 @@ export default function ProductDetails() {
                 <h2 className="sr-only">Reviews</h2>
                 <div className="flex items-center">
                   <p className="text-sm text-gray-700">
-                    {product[0].rating}
+                    {product[0]?.rating}
                     <span className="sr-only"> out of 5 stars</span>
                   </p>
                   <div className="flex items-center ml-1">
@@ -86,7 +86,7 @@ export default function ProductDetails() {
                       <StarIcon
                         key={rating}
                         className={classNames(
-                          product[0].rating > rating
+                          product[0]?.rating > rating
                             ? "text-yellow-400"
                             : "text-gray-200",
                           "h-5 w-5 flex-shrink-0"
@@ -106,7 +106,7 @@ export default function ProductDetails() {
                       href="#"
                       className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
                     >
-                      See all {product[0].reviewCount} reviews
+                      See all {product[0]?.reviewCount} reviews
                     </a>
                   </div>
                 </div>
@@ -118,7 +118,7 @@ export default function ProductDetails() {
               <h2 className="sr-only">Images</h2>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 lg:gap-8">
-                {product[0].images.map((image) => (
+                {product[0]?.images.map((image) => (
                   <Image
                     key={image.id}
                     width="0"
@@ -152,7 +152,7 @@ export default function ProductDetails() {
                       Choose a color
                     </RadioGroup.Label>
                     <div className="flex items-center space-x-3">
-                      {product[0].colors.map((color) => (
+                      {product[0]?.colors.map((color) => (
                         <RadioGroup.Option
                           key={color.name}
                           value={color}
@@ -201,7 +201,7 @@ export default function ProductDetails() {
                       Choose a size
                     </RadioGroup.Label>
                     <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
-                      {product[0].sizes.map((size) => (
+                      {product[0]?.sizes.map((size) => (
                         <RadioGroup.Option
                           key={size.name}
                           value={size}
@@ -234,9 +234,9 @@ export default function ProductDetails() {
                   href=""
                   onClick={() =>
                     handleAddToCart({
-                      price: product[0].price,
-                      image: product[0].images[0].imageSrc,
-                      name: product[0].name,
+                      price: product[0]?.price,
+                      image: product[0]?.images[0].imageSrc,
+                      name: product[0]?.name,
                       color: selectedColor,
                       size: selectedSize,
                       productUrl: productUrl,
@@ -256,7 +256,7 @@ export default function ProductDetails() {
 
                 <div
                   className="mt-4 prose-sm prose text-gray-500"
-                  dangerouslySetInnerHTML={{ __html: product[0].description }}
+                  dangerouslySetInnerHTML={{ __html: product[0]?.description }}
                 />
               </div>
 
@@ -267,7 +267,7 @@ export default function ProductDetails() {
 
                 <div className="mt-4 prose-sm prose text-gray-500">
                   <ul role="list">
-                    {product[0].details.map((item) => (
+                    {product[0]?.details.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>

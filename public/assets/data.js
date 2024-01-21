@@ -199,6 +199,70 @@ export const products = [
   },
 ];
 
+export const men_products = [
+  {
+    id: 1,
+    name: "Basic Tee 8-Pack",
+    href: "#",
+    price: "$256",
+    description:
+      "Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.",
+    options: "8 colors",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg",
+    imageAlt:
+      "Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green.",
+  },
+  {
+    id: 2,
+    name: "Basic Tee",
+    href: "#",
+    price: "$32",
+    description:
+      "Look like a visionary CEO and wear the same black t-shirt every day.",
+    options: "Black",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg",
+    imageAlt: "Front of plain black t-shirt.",
+  },
+  {
+    id: 3,
+    name: "Basic Tee-Men-1",
+    href: "#",
+    price: "$32",
+    description:
+      "Look like a visionary CEO and wear the same black t-shirt every day.",
+    options: "Black",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-03.jpg",
+    imageAlt: "Front of plain black t-shirt.",
+  },
+  {
+    id: 4,
+    name: "Basic Tee-Men-2",
+    href: "#",
+    price: "$32",
+    description:
+      "Look like a visionary CEO and wear the same black t-shirt every day.",
+    options: "Black",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-04.jpg",
+    imageAlt: "Front of plain black t-shirt.",
+  },
+  {
+    id: 5,
+    name: "Basic Tee 3-Pack",
+    href: "#",
+    price: "$32",
+    description:
+      "Look like a visionary CEO and wear the same black t-shirt every day.",
+    options: "Black",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-05.jpg",
+    imageAlt: "Front of plain black t-shirt.",
+  },
+];
+
 export const products_details = [
   {
     name: "Basic Tee-1",
@@ -799,5 +863,333 @@ export const products_details = [
       "Pre-washed and pre-shrunk",
       "Machine wash cold with similar colors",
     ],
+  },
+  {
+    name: "Basic Tee 8-Pack",
+    price: "$256",
+    rating: 1.9,
+    reviewCount: 512,
+    href: "#",
+    breadcrumbs: [
+      { id: 1, name: "Men", href: "#" },
+      { id: 2, name: "Clothing", href: "#" },
+    ],
+    images: [
+      {
+        id: 1,
+        imageSrc:
+          "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg",
+        imageAlt: "Back of women's Basic Tee in black.",
+        primary: true,
+      },
+      {
+        id: 2,
+        imageSrc:
+          "https://tailwindui.com/img/ecommerce-images/product-page-01-product-shot-02.jpg",
+        imageAlt: "Side profile of women's Basic Tee in black.",
+        primary: false,
+      },
+      {
+        id: 3,
+        imageSrc:
+          "https://tailwindui.com/img/ecommerce-images/product-page-01-product-shot-01.jpg",
+        imageAlt: "Front of women's Basic Tee in black.",
+        primary: false,
+      },
+    ],
+    colors: [
+      { name: "Black", bgColor: "bg-gray-900", selectedColor: "ring-gray-900" },
+      {
+        name: "Heather Grey",
+        bgColor: "bg-gray-400",
+        selectedColor: "ring-gray-400",
+      },
+    ],
+    sizes: [
+      { name: "XXS", inStock: true },
+      { name: "XS", inStock: true },
+      { name: "S", inStock: true },
+      { name: "M", inStock: true },
+      { name: "L", inStock: true },
+      { name: "XL", inStock: false },
+    ],
+    description: `
+    <p>The Basic tee is an honest new take on a classic. The tee uses super soft, pre-shrunk cotton for true comfort and a dependable fit. They are hand cut and sewn locally, with a special dye technique that gives each tee it's own look.</p>
+    <p>Looking to stock your closet? The Basic tee also comes in a 3-pack or 5-pack at a bundle discount.</p>
+  `,
+    details: [
+      "Only the best materials",
+      "Ethically and locally made",
+      "Pre-washed and pre-shrunk",
+      "Machine wash cold with similar colors",
+    ],
+  },
+  {
+    name: "Basic Tee",
+    price: "$256",
+    rating: 1.9,
+    reviewCount: 512,
+    href: "#",
+    breadcrumbs: [
+      { id: 1, name: "Men", href: "#" },
+      { id: 2, name: "Clothing", href: "#" },
+    ],
+    images: [
+      {
+        id: 1,
+        imageSrc:
+          "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg",
+        imageAlt: "Back of women's Basic Tee in black.",
+        primary: true,
+      },
+      {
+        id: 2,
+        imageSrc:
+          "https://tailwindui.com/img/ecommerce-images/product-page-01-product-shot-02.jpg",
+        imageAlt: "Side profile of women's Basic Tee in black.",
+        primary: false,
+      },
+      {
+        id: 3,
+        imageSrc:
+          "https://tailwindui.com/img/ecommerce-images/product-page-01-product-shot-01.jpg",
+        imageAlt: "Front of women's Basic Tee in black.",
+        primary: false,
+      },
+    ],
+    colors: [
+      { name: "Black", bgColor: "bg-gray-900", selectedColor: "ring-gray-900" },
+      {
+        name: "Heather Grey",
+        bgColor: "bg-gray-400",
+        selectedColor: "ring-gray-400",
+      },
+    ],
+    sizes: [
+      { name: "XXS", inStock: true },
+      { name: "XS", inStock: true },
+      { name: "S", inStock: true },
+      { name: "M", inStock: true },
+      { name: "L", inStock: true },
+      { name: "XL", inStock: false },
+    ],
+    description: `
+    <p>The Basic tee is an honest new take on a classic. The tee uses super soft, pre-shrunk cotton for true comfort and a dependable fit. They are hand cut and sewn locally, with a special dye technique that gives each tee it's own look.</p>
+    <p>Looking to stock your closet? The Basic tee also comes in a 3-pack or 5-pack at a bundle discount.</p>
+  `,
+    details: [
+      "Only the best materials",
+      "Ethically and locally made",
+      "Pre-washed and pre-shrunk",
+      "Machine wash cold with similar colors",
+    ],
+  },
+  {
+    name: "Basic Tee-Men-2",
+    price: "$256",
+    rating: 2.9,
+    reviewCount: 512,
+    images: [
+      {
+        id: 1,
+        imageSrc:
+          "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-04.jpg",
+        imageAlt: "Back of women's Basic Tee in black.",
+        primary: true,
+      },
+      {
+        id: 2,
+        imageSrc:
+          "https://tailwindui.com/img/ecommerce-images/product-page-01-product-shot-02.jpg",
+        imageAlt: "Side profile of women's Basic Tee in black.",
+        primary: false,
+      },
+      {
+        id: 3,
+        imageSrc:
+          "https://tailwindui.com/img/ecommerce-images/product-page-01-product-shot-01.jpg",
+        imageAlt: "Front of women's Basic Tee in black.",
+        primary: false,
+      },
+    ],
+    colors: [
+      { name: "Black", bgColor: "bg-gray-900", selectedColor: "ring-gray-900" },
+      {
+        name: "Heather Grey",
+        bgColor: "bg-gray-400",
+        selectedColor: "ring-gray-400",
+      },
+    ],
+    sizes: [
+      { name: "XXS", inStock: true },
+      { name: "XS", inStock: true },
+      { name: "S", inStock: true },
+      { name: "M", inStock: true },
+      { name: "L", inStock: true },
+      { name: "XL", inStock: false },
+    ],
+    description: `
+    <p>The Basic tee is an honest new take on a classic. The tee uses super soft, pre-shrunk cotton for true comfort and a dependable fit. They are hand cut and sewn locally, with a special dye technique that gives each tee it's own look.</p>
+    <p>Looking to stock your closet? The Basic tee also comes in a 3-pack or 5-pack at a bundle discount.</p>
+  `,
+    details: [
+      "Only the best materials",
+      "Ethically and locally made",
+      "Pre-washed and pre-shrunk",
+      "Machine wash cold with similar colors",
+    ],
+  },
+  {
+    name: "Basic Tee-Men-1",
+    price: "$256",
+    rating: 1.9,
+    reviewCount: 512,
+    href: "#",
+    breadcrumbs: [
+      { id: 1, name: "Men", href: "#" },
+      { id: 2, name: "Clothing", href: "#" },
+    ],
+    images: [
+      {
+        id: 1,
+        imageSrc:
+          "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-03.jpg",
+        imageAlt: "Back of women's Basic Tee in black.",
+        primary: true,
+      },
+      {
+        id: 2,
+        imageSrc:
+          "https://tailwindui.com/img/ecommerce-images/product-page-01-product-shot-02.jpg",
+        imageAlt: "Side profile of women's Basic Tee in black.",
+        primary: false,
+      },
+      {
+        id: 3,
+        imageSrc:
+          "https://tailwindui.com/img/ecommerce-images/product-page-01-product-shot-01.jpg",
+        imageAlt: "Front of women's Basic Tee in black.",
+        primary: false,
+      },
+    ],
+    colors: [
+      { name: "Black", bgColor: "bg-gray-900", selectedColor: "ring-gray-900" },
+      {
+        name: "Heather Grey",
+        bgColor: "bg-gray-400",
+        selectedColor: "ring-gray-400",
+      },
+    ],
+    sizes: [
+      { name: "XXS", inStock: true },
+      { name: "XS", inStock: true },
+      { name: "S", inStock: true },
+      { name: "M", inStock: true },
+      { name: "L", inStock: true },
+      { name: "XL", inStock: false },
+    ],
+    description: `
+    <p>The Basic tee is an honest new take on a classic. The tee uses super soft, pre-shrunk cotton for true comfort and a dependable fit. They are hand cut and sewn locally, with a special dye technique that gives each tee it's own look.</p>
+    <p>Looking to stock your closet? The Basic tee also comes in a 3-pack or 5-pack at a bundle discount.</p>
+  `,
+    details: [
+      "Only the best materials",
+      "Ethically and locally made",
+      "Pre-washed and pre-shrunk",
+      "Machine wash cold with similar colors",
+    ],
+  },
+  {
+    name: "Basic Tee 3-Pack",
+    price: "$256",
+    rating: 1.9,
+    reviewCount: 512,
+    href: "#",
+    breadcrumbs: [
+      { id: 1, name: "Men", href: "#" },
+      { id: 2, name: "Clothing", href: "#" },
+    ],
+    images: [
+      {
+        id: 1,
+        imageSrc:
+          "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-05.jpg",
+        imageAlt: "Back of women's Basic Tee in black.",
+        primary: true,
+      },
+      {
+        id: 2,
+        imageSrc:
+          "https://tailwindui.com/img/ecommerce-images/product-page-01-product-shot-02.jpg",
+        imageAlt: "Side profile of women's Basic Tee in black.",
+        primary: false,
+      },
+      {
+        id: 3,
+        imageSrc:
+          "https://tailwindui.com/img/ecommerce-images/product-page-01-product-shot-01.jpg",
+        imageAlt: "Front of women's Basic Tee in black.",
+        primary: false,
+      },
+    ],
+    colors: [
+      { name: "Black", bgColor: "bg-gray-900", selectedColor: "ring-gray-900" },
+      {
+        name: "Heather Grey",
+        bgColor: "bg-gray-400",
+        selectedColor: "ring-gray-400",
+      },
+    ],
+    sizes: [
+      { name: "XXS", inStock: true },
+      { name: "XS", inStock: true },
+      { name: "S", inStock: true },
+      { name: "M", inStock: true },
+      { name: "L", inStock: true },
+      { name: "XL", inStock: false },
+    ],
+    description: `
+    <p>The Basic tee is an honest new take on a classic. The tee uses super soft, pre-shrunk cotton for true comfort and a dependable fit. They are hand cut and sewn locally, with a special dye technique that gives each tee it's own look.</p>
+    <p>Looking to stock your closet? The Basic tee also comes in a 3-pack or 5-pack at a bundle discount.</p>
+  `,
+    details: [
+      "Only the best materials",
+      "Ethically and locally made",
+      "Pre-washed and pre-shrunk",
+      "Machine wash cold with similar colors",
+    ],
+  },
+];
+
+export const categories = [
+  {
+    name: "New Arrivals",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/home-page-01-category-01.jpg",
+  },
+  {
+    name: "Productivity",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/home-page-01-category-02.jpg",
+  },
+  {
+    name: "Workspace",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/home-page-01-category-04.jpg",
+  },
+  {
+    name: "Accessories",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/home-page-01-category-05.jpg",
+  },
+  {
+    name: "Sale",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/home-page-01-category-03.jpg",
   },
 ];
