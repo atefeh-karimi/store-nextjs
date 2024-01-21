@@ -1,25 +1,68 @@
 "use client";
 import React from "react";
 import { Fragment, useState } from "react";
-import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
+import { Dialog, Popover, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
   BuildingStorefrontIcon,
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import Image from "next/image";
 import Link from "next/link";
 import { navigation } from "@/public/assets/headerNavigation";
 import { useCartContext } from "../context";
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import Avatar from "./Avatar";
+import { Skeleton } from "antd";
+import { redirect } from "next/navigation";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const { cartItems } = useCartContext();
+
+  const getUserInfo = () => {
+    const userString = localStorage.getItem("user");
+    if (userString) {
+      try {
+        const user = JSON.parse(userString);
+        return user;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    return null;
+  };
+
+  const user = getUserInfo();
+  const onLogout = () => {
+    localStorage.removeItem("user");
+    redirect("/");
+  };
+  const renderAuthBox = () => {
+    let result = <Skeleton active />;
+    if (user) {
+      result = <Avatar user={user} onLogout={onLogout} />;
+    } else {
+      result = (
+        <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+          <Link
+            href="/sign-in"
+            className="text-sm font-medium text-gray-700 hover:text-gray-800"
+          >
+            Sign in
+          </Link>
+          <span className="w-px h-6 bg-gray-200" aria-hidden="true" />
+          <Link
+            href="/sign-up"
+            className="text-sm font-medium text-gray-700 hover:text-gray-800"
+          >
+            Create account
+          </Link>
+        </div>
+      );
+    }
+    return result;
+  };
+
   return (
     <div className="bg-white">
       {/* Mobile menu */}
@@ -139,23 +182,7 @@ export default function Header() {
               </Popover.Group>
 
               <div className="flex items-center ml-auto">
-                {/* Sign in - create account */}
-                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <Link
-                    href="/sign-in"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Sign in
-                  </Link>
-                  <span className="w-px h-6 bg-gray-200" aria-hidden="true" />
-                  <Link
-                    href="/sign-up"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Create account
-                  </Link>
-                </div>
-
+                {renderAuthBox()}
                 {/* Cart */}
                 <div className="flow-root ml-4 lg:ml-6">
                   <Link
