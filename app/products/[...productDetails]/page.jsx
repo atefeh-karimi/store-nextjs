@@ -5,14 +5,37 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import Image from "next/image";
 import { useCartContext } from "@/app/context";
-import Link from "next/link";
 import { products_details } from "@/public/assets/data";
-
+import { Alert, ConfigProvider, message } from "antd";
+import Link from "next/link";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function ProductDetails() {
+  const [messageApi, contextHolder] = message.useMessage();
+  const [isErroModalOpen, setIsErrorModalOpen] = useState(false);
+  const getUserInfo = () => {
+    const userString = localStorage.getItem("user");
+    if (userString) {
+      try {
+        const user = JSON.parse(userString);
+        return user;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    return null;
+  };
+
+  const user = getUserInfo();
+  const dispalySuccessMsg = () => {
+    messageApi.open({
+      type: "success",
+      content: "Product successfully added to the cart.",
+    });
+  };
+
   const { handleAddToCart, cartItems } = useCartContext();
   const params = useParams();
   const router = useRouter();
@@ -21,8 +44,49 @@ export default function ProductDetails() {
   const product = products_details.filter((item) => item.name === ProducName);
   const [selectedColor, setSelectedColor] = useState(product[0]?.colors[0]);
   const [selectedSize, setSelectedSize] = useState(product[0]?.sizes[2]);
+
+  const onAddClick = () => {
+    if (!user) {
+      setIsErrorModalOpen(true);
+    } else {
+      handleAddToCart({
+        price: product[0]?.price,
+        image: product[0]?.images[0].imageSrc,
+        name: product[0]?.name,
+        color: selectedColor,
+        size: selectedSize,
+        productUrl: productUrl,
+      });
+      dispalySuccessMsg();
+    }
+  };
   return (
     <div className="bg-white">
+      {contextHolder}
+      <div className="mt-2 ">
+        {isErroModalOpen ? (
+          <ConfigProvider
+            theme={{
+              components: {
+                Alert: {
+                  defaultPadding: "4px 6px",
+                },
+              },
+            }}
+          >
+            <Alert
+              message="Oops!"
+              showIcon
+              closable
+              description="You need to log in or create an account to add items to your cart."
+              type="error"
+              banner
+            />
+          </ConfigProvider>
+        ) : (
+          ""
+        )}
+      </div>
       <div className="pt-6 pb-16 sm:pb-24">
         {/* breadcrumb */}
         <nav
@@ -230,22 +294,13 @@ export default function ProductDetails() {
                   </RadioGroup>
                 </div>
                 {/* Add to cart button */}
-                <Link
-                  href=""
-                  onClick={() =>
-                    handleAddToCart({
-                      price: product[0]?.price,
-                      image: product[0]?.images[0].imageSrc,
-                      name: product[0]?.name,
-                      color: selectedColor,
-                      size: selectedSize,
-                      productUrl: productUrl,
-                    })
-                  }
-                  className="flex items-center justify-center w-full px-8 py-3 mt-8 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                <button
+                  type="button"
+                  onClick={onAddClick}
+                  className="flex items-center justify-center w-full px-8 py-3 mt-8 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md disabled:bg-opacity-90 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   Add to cart
-                </Link>
+                </button>
               </form>
 
               {/* Product details */}

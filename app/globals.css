@@ -7,3 +7,16 @@
   -webkit-appearance: none;
   margin: 0;
 }
+
+.ant-alert-action {
+  border: 1px solid green !important;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: green;
+}
+.ant-alert-action:hover {
+  border: 1px solid green !important;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: green !important;
+}

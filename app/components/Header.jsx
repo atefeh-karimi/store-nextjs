@@ -13,12 +13,12 @@ import { navigation } from "@/public/assets/headerNavigation";
 import { useCartContext } from "../context";
 import Avatar from "./Avatar";
 import { Skeleton } from "antd";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const { cartItems } = useCartContext();
-
+  const router = useRouter();
   const getUserInfo = () => {
     const userString = localStorage.getItem("user");
     if (userString) {
@@ -35,7 +35,9 @@ export default function Header() {
   const user = getUserInfo();
   const onLogout = () => {
     localStorage.removeItem("user");
-    redirect("/");
+    localStorage.removeItem("cart");
+    router.refresh();
+    router.push("/");
   };
   const renderAuthBox = () => {
     let result = <Skeleton active />;
@@ -190,12 +192,17 @@ export default function Header() {
                     className="flex items-center p-2 -m-2 group"
                   >
                     <ShoppingBagIcon
-                      className="flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-gray-500"
+                      className="relative flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                      {cartItems.length}
-                    </span>
+                    {cartItems.length ? (
+                      <span className="absolute z-40 flex items-center justify-center w-4 text-xs font-semibold text-white rounded-full bg-lime-600 top-3 right-6 ">
+                        {cartItems.length}
+                      </span>
+                    ) : (
+                      ""
+                    )}
+
                     <span className="sr-only">items in cart, view bag</span>
                   </Link>
                 </div>

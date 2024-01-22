@@ -6,7 +6,7 @@ import countryList from "react-select-country-list";
 import Input from "@/app/components/Input";
 import Select from "@/app/components/Select";
 import validator from "validator";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const DisplayingErrorMessagesSchema = Yup.object().shape({
   first_name: Yup.string()
@@ -28,9 +28,9 @@ const DisplayingErrorMessagesSchema = Yup.object().shape({
 });
 export default function SignUp() {
   const options = useMemo(() => countryList().getData(), []);
-
+  const router = useRouter();
   return (
-    <div className="max-w-3xl px-4 pt-16 pb-24 mx-auto sm:px-6 lg:max-w-7xl lg:px-6 ">
+    <div className="max-w-5xl px-4 pt-16 pb-24 mx-auto sm:px-6 lg:max-w-3xl lg:px-6 ">
       <Formik
         validationSchema={DisplayingErrorMessagesSchema}
         initialValues={{
@@ -46,8 +46,9 @@ export default function SignUp() {
           phone: "",
         }}
         onSubmit={async (values) => {
-          await localStorage.setItem("user", JSON.stringify({ ...values }));
-          redirect("/");
+          await localStorage.setItem("user", JSON.stringify(values));
+          router.refresh();
+          router.push("/");
         }}
       >
         {({
@@ -58,10 +59,7 @@ export default function SignUp() {
           handleBlur,
           isSubmitting,
         }) => (
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col items-center justify-center"
-          >
+          <form onSubmit={handleSubmit}>
             <div>
               {/* sign up title  */}
               <div className="mb-12 sm:mx-auto sm:w-full sm:max-w-md">
@@ -71,16 +69,16 @@ export default function SignUp() {
               </div>
 
               <div className="px-6 py-10 mt-4 bg-white shadow sm:rounded-lg sm:px-12">
-                {/* email */}
-                <Input
-                  handleChange={handleChange}
-                  value={values?.email}
-                  handleBlur={handleBlur}
-                  placeholder="Example@gmail.com"
-                  name="email"
-                  label="Email"
-                />
-                <div className="grid grid-cols-1 mt-4 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
+                <div className="grid grid-cols-1 mt-4 gap-y-6 sm:grid-cols-4 sm:gap-x-4">
+                  {/* email */}
+                  <Input
+                    handleChange={handleChange}
+                    value={values?.email}
+                    handleBlur={handleBlur}
+                    placeholder="Example@gmail.com"
+                    name="email"
+                    label="Email"
+                  />
                   {/* first_name */}
                   <Input
                     handleChange={handleChange}
@@ -97,6 +95,14 @@ export default function SignUp() {
                     name="last_name"
                     label="Last Name"
                   />
+                  {/* phone */}
+                  <Input
+                    handleChange={handleChange}
+                    value={values?.phone}
+                    handleBlur={handleBlur}
+                    name="phone"
+                    label="Phone"
+                  />
                   {/* Address */}
                   <Input
                     handleChange={handleChange}
@@ -104,6 +110,7 @@ export default function SignUp() {
                     handleBlur={handleBlur}
                     name="address"
                     label="Address"
+                    className="sm:col-span-4"
                   />
                   {/* Apartment, suite, etc. */}
                   <Input
@@ -112,6 +119,7 @@ export default function SignUp() {
                     handleBlur={handleBlur}
                     name="apartment"
                     label="Apartment, suite, etc"
+                    className="sm:col-span-4"
                   />
                   {/* City */}
                   <Input
@@ -123,7 +131,7 @@ export default function SignUp() {
                     className="sm:col-span-1"
                   />
                   {/* Country */}
-                  <div>
+                  <div className="col-span-2">
                     <label
                       htmlFor="country"
                       className="block text-sm font-medium text-gray-700"
@@ -159,27 +167,16 @@ export default function SignUp() {
                     label="Postal code"
                     className="sm:col-span-1"
                   />
-
-                  {/* phone */}
-                  <Input
-                    handleChange={handleChange}
-                    value={values?.phone}
-                    handleBlur={handleBlur}
-                    name="phone"
-                    label="Phone"
-                  />
                 </div>
-                <div>
+                <div className="flex items-center justify-end w-full">
                   <button
                     type="submit"
-                    className="flex w-full justify-center mt-5 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="flex  justify-center mt-5 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Sign up
                   </button>
                 </div>
               </div>
-
-              {/* sign up button  */}
             </div>
           </form>
         )}

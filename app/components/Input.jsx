@@ -11,7 +11,7 @@ export default function Input({
   className = "",
 }) {
   return (
-    <div className={`sm:col-span-2 ${className}`}>
+    <div className={`col-span-4 sm:col-span-2 ${className}`}>
       <label
         htmlFor="region"
         className="block text-sm font-medium text-gray-700"

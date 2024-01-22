@@ -7,17 +7,15 @@ import EmptyCart from "../components/cart/EmptyCart";
 
 export default function Cart() {
   const {
-    handleAddToCart,
     handleDeleteOfCart,
     cartItems,
     handleUpdateQuantity,
     getCartTotal,
     getOrderTotalPrice,
     calculateTaxes,
-    tax,
     shipping,
   } = useCartContext();
-
+  console.log({ cartItems });
   return (
     <div className="bg-white">
       <div className="max-w-4xl px-4 py-16 mx-auto sm:px-6 sm:py-24 lg:px-8">
@@ -34,7 +32,10 @@ export default function Cart() {
                   className="border-t border-b border-gray-200 divide-y divide-gray-200"
                 >
                   {cartItems.map((product, productIdx) => (
-                    <li key={product.id} className="flex py-6 sm:py-10">
+                    <li
+                      key={product.name + productIdx}
+                      className="flex py-6 sm:py-10"
+                    >
                       <div className="flex-shrink-0 w-24 h-24 rounded-lg sm:h-32 sm:w-32">
                         <Image
                           src={product.image}
@@ -135,7 +136,7 @@ export default function Cart() {
                       <div className="flex items-center justify-between py-4">
                         <dt className="text-gray-600">Tax</dt>
                         <dd className="font-medium text-gray-900">
-                          ${calculateTaxes}
+                          ${parseFloat(calculateTaxes.toFixed(2))}
                         </dd>
                       </div>
                       <div className="flex items-center justify-between py-4">
@@ -161,13 +162,13 @@ export default function Cart() {
                 <div className="mt-6 text-sm text-center text-gray-500">
                   <p>
                     or&nbsp;
-                    <a
-                      href="#"
+                    <Link
+                      href="/"
                       className="font-medium text-indigo-600 hover:text-indigo-500"
                     >
                       Continue Shopping
                       <span aria-hidden="true"> &rarr;</span>
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>
