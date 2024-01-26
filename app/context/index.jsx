@@ -1,9 +1,12 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 
 export const CartContext = createContext();
 
 export function CartContextProvider({ children }) {
+  const router = useRouter();
+
   const getCartItems = () => {
     if (typeof window !== "undefined" && window.localStorage) {
       const cartString = localStorage.getItem("cart");
@@ -76,6 +79,14 @@ export function CartContextProvider({ children }) {
       0
     );
   }
+
+  const onLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("cart");
+    setCartItems([]);
+    router.refresh();
+    router.push("/");
+  };
   const calculateTaxes = getCartTotal() * tax;
   function getOrderTotalPrice() {
     return getCartTotal() + calculateTaxes + shipping;
@@ -93,6 +104,7 @@ export function CartContextProvider({ children }) {
         tax,
         calculateTaxes,
         shipping,
+        onLogout,
       }}
     >
       {children}

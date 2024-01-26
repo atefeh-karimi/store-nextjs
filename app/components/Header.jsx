@@ -13,12 +13,10 @@ import { navigation } from "@/public/assets/headerNavigation";
 import { useCartContext } from "../context";
 import Avatar from "./Avatar";
 import { Skeleton } from "antd";
-import { useRouter } from "next/navigation";
-
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const { cartItems } = useCartContext();
-  const router = useRouter();
+  const { cartItems, onLogout } = useCartContext();
+
   const getUserInfo = () => {
     if (typeof window !== "undefined") {
       const userString = localStorage.getItem("user");
@@ -35,12 +33,7 @@ export default function Header() {
   };
 
   const user = getUserInfo();
-  const onLogout = () => {
-    localStorage.removeItem("user");
-    localStorage.removeItem("cart");
-    router.refresh();
-    router.push("/");
-  };
+
   const renderAuthBox = () => {
     let result = <Skeleton active />;
     if (user) {
@@ -69,6 +62,7 @@ export default function Header() {
 
   return (
     <div className="bg-white">
+      {contextHolder}
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
