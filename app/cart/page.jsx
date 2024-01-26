@@ -15,7 +15,6 @@ export default function Cart() {
     calculateTaxes,
     shipping,
   } = useCartContext();
-  console.log({ cartItems });
   return (
     <div className="bg-white">
       <div className="max-w-4xl px-4 py-16 mx-auto sm:px-6 sm:py-24 lg:px-8">

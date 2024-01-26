@@ -7,7 +7,6 @@ import Image from "next/image";
 import { useCartContext } from "@/app/context";
 import { products_details } from "@/public/assets/data";
 import { Alert, ConfigProvider, message } from "antd";
-import Link from "next/link";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -46,7 +45,6 @@ export default function ProductDetails() {
   const product = products_details.filter((item) => item.name === ProducName);
   const [selectedColor, setSelectedColor] = useState(product[0]?.colors[0]);
   const [selectedSize, setSelectedSize] = useState(product[0]?.sizes[2]);
-  console.log({ product });
   const onAddClick = () => {
     if (!user) {
       setIsErrorModalOpen(true);
