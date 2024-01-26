@@ -92,7 +92,7 @@ export const favorite_products = [
   },
 ];
 
-export const products = [
+export const women_products = [
   {
     id: 1,
     name: "Basic Tee-1",
@@ -1123,5 +1123,213 @@ export const categories = [
     href: "#",
     imageSrc:
       "https://tailwindui.com/img/ecommerce-images/home-page-01-category-03.jpg",
+  },
+];
+
+export const all_products = [
+  {
+    id: 1,
+    name: "Earthen Bottle",
+    price: "48",
+    rating: 2,
+    reviewCount: 42,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+    imageAlt: "Earthen Bottle",
+  },
+  {
+    id: 2,
+    name: "Nomad Tumbler",
+    price: "35",
+    rating: 4,
+    reviewCount: 12,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
+    imageAlt:
+      "Olive drab green insulated bottle with flared screw lid and flat top.",
+  },
+  {
+    id: 3,
+    name: "Focus Paper Refill",
+    price: "89",
+    rating: 5,
+    reviewCount: 42,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
+    imageAlt:
+      "Person using a pen to cross a task off a productivity paper card.",
+  },
+  {
+    id: 4,
+    name: "Machined Mechanical Pencil",
+    price: "35",
+    rating: 1.5,
+    reviewCount: 23,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-05-image-card-04.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 5,
+    name: "Mechanical Penci-3",
+    price: "52",
+    rating: 2.1,
+    reviewCount: 12,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-05.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 6,
+    name: "Machined Pencil-1",
+    price: "25",
+    rating: 1,
+    reviewCount: 15,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-06.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 7,
+    name: "Machined Pencil-2",
+    price: "28",
+    rating: 5,
+    reviewCount: 20,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-07.jpg",
+    imageAlt: "Hand holding black machined steel mechanical pencil.",
+  },
+
+  {
+    id: 8,
+    name: "Organize Basic Set (Walnut)",
+    price: "149",
+    rating: 2,
+    reviewCount: 1,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-05-image-card-01.jpg",
+    imageAlt: "TODO",
+    href: "#",
+  },
+  {
+    id: 9,
+    name: "Bottle",
+    price: "5",
+    rating: 4.3,
+    reviewCount: 20,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-05-image-card-07.jpg",
+    imageAlt: "Bottle",
+    href: "#",
+  },
+  {
+    id: 10,
+    name: "Organize Sticky Note Holder",
+    price: "17",
+    rating: 5,
+    reviewCount: 2,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-05-image-card-03.jpg",
+    imageAlt: "TODO",
+    href: "#",
+  },
+  {
+    id: 11,
+    name: "Organize Phone Holder",
+    price: "10",
+    rating: 5,
+    reviewCount: 60,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-05-image-card-06.jpg",
+    imageAlt: "TODO",
+    href: "#",
+  },
+
+  {
+    id: 12,
+    name: "Machined Pen",
+    price: "80",
+    rating: 3,
+    reviewCount: 30,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg",
+    imageAlt:
+      "Black machined steel pen with hexagonal grip and small white logo at top.",
+  },
+  {
+    id: 13,
+    name: "Mug",
+    price: "78",
+    rating: 3,
+    reviewCount: 3,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/home-page-02-product-02.jpg",
+    imageAlt: "Black mug.",
+  },
+  {
+    id: 14,
+    name: "Note-Book1",
+    price: "98",
+    rating: 1.2,
+    reviewCount: 3,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/home-page-02-product-03.jpg",
+    imageAlt: "Note-Book.",
+  },
+  {
+    id: 15,
+    name: "Note-Book2",
+    price: "18",
+    rating: 3,
+    reviewCount: 9,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/home-page-02-product-04.jpg",
+    imageAlt: "Note-Book2.",
+  },
+  {
+    id: 16,
+    name: "Nomad Pouch",
+    price: "500",
+    rating: 2,
+    reviewCount: 59,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-07-product-01.jpg",
+    imageAlt:
+      "White fabric pouch with white zipper, black zipper pull, and black elastic loop.",
+  },
+  {
+    id: 17,
+    name: "Zip Tote Basket",
+    price: "140",
+    rating: 2.5,
+    reviewCount: 58,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-07-product-02.jpg",
+    imageAlt:
+      "Front of tote bag with washed black canvas body, black straps, and tan leather handles and accents.",
+  },
+  {
+    id: 18,
+    name: "Zip Basket",
+    price: "140",
+    rating: 4,
+    reviewCount: 18,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-07-product-03.jpg",
+    imageAlt:
+      "Front of tote bag with washed black canvas body and tan leather handles and accents.",
+  },
+  {
+    id: 19,
+    name: "Basket",
+    price: "240",
+    rating: 5,
+    reviewCount: 28,
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-07-product-04.jpg",
+    imageAlt: "Front of tote bag with washed black canvas body.",
   },
 ];
