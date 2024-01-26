@@ -87,11 +87,11 @@ export default function Stores() {
                 value={querySearch}
                 onChange={handleSearchChange}
                 onKeyDown={handleEnterKey}
-                className="block px-2 w-full rounded-md border-0 py-1.5 pr-14 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600  sm:text-sm sm:leading-6"
+                className="block px-2 w-full rounded-md border-0 py-1.5 pr-14 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600  sm:text-sm sm:leading-6"
               />
               <button
                 onClick={handleSearchClick}
-                className="absolute rounded-r-md bg-indigo-500 inset-y-0 text-white px-3 right-0 flex py-1.5 "
+                className="absolute rounded-r-md bg-indigo-600 inset-y-0 text-white px-3 right-0 flex py-1.5 "
               >
                 <MagnifyingGlassIcon className="w-6 h-6" />
               </button>
@@ -154,50 +154,55 @@ export default function Stores() {
         <h2 id="products-heading" className="sr-only">
           Products
         </h2>
-
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {products.map((product) => (
-            <a key={product.id} href={product.href} className="group">
-              <div className="w-full overflow-hidden bg-gray-200 rounded-lg aspect-h-1 aspect-w-1 xl:aspect-h-8 xl:aspect-w-7">
-                <Image
-                  src={product.imageSrc}
-                  alt={product.imageAlt}
-                  width="0"
-                  height="0"
-                  sizes="100vh"
-                  className="object-cover object-center w-full h-full group-hover:opacity-75"
-                />
-              </div>
-              <div className="flex items-center justify-between mt-4">
-                <h3 className="text-sm text-gray-700">{product.name}</h3>
-
-                <p className="text-lg font-medium text-gray-900 ">
-                  ${product.price}
-                </p>
-              </div>
-              <div className="flex items-center justify-between mt-3">
-                <p className="sr-only">{product.rating} out of 5 stars</p>
-                <div className="flex items-center">
-                  {[0, 1, 2, 3, 4].map((rating) => (
-                    <StarIcon
-                      key={rating}
-                      className={classNames(
-                        product.rating > rating
-                          ? "text-yellow-400"
-                          : "text-gray-200",
-                        "h-5 w-5 flex-shrink-0"
-                      )}
-                      aria-hidden="true"
-                    />
-                  ))}
+        {products.length ? (
+          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+            {products.map((product) => (
+              <a key={product.id} href={product.href} className="group">
+                <div className="w-full overflow-hidden bg-gray-200 rounded-lg aspect-h-1 aspect-w-1 xl:aspect-h-8 xl:aspect-w-7">
+                  <Image
+                    src={product.imageSrc}
+                    alt={product.imageAlt}
+                    width="0"
+                    height="0"
+                    sizes="100vh"
+                    className="object-cover object-center w-full h-full group-hover:opacity-75"
+                  />
                 </div>
-                <p className="mt-1 text-sm text-gray-500">
-                  {product.reviewCount} reviews
-                </p>
-              </div>
-            </a>
-          ))}
-        </div>
+                <div className="flex items-center justify-between mt-4">
+                  <h3 className="text-sm text-gray-700">{product.name}</h3>
+
+                  <p className="text-lg font-medium text-gray-900 ">
+                    ${product.price}
+                  </p>
+                </div>
+                <div className="flex items-center justify-between mt-3">
+                  <p className="sr-only">{product.rating} out of 5 stars</p>
+                  <div className="flex items-center">
+                    {[0, 1, 2, 3, 4].map((rating) => (
+                      <StarIcon
+                        key={rating}
+                        className={classNames(
+                          product.rating > rating
+                            ? "text-yellow-400"
+                            : "text-gray-200",
+                          "h-5 w-5 flex-shrink-0"
+                        )}
+                        aria-hidden="true"
+                      />
+                    ))}
+                  </div>
+                  <p className="mt-1 text-sm text-gray-500">
+                    {product.reviewCount} reviews
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <p className="flex items-center justify-center w-full">
+            Sorry, no products matched your search!
+          </p>
+        )}
       </section>
     </div>
   );
