@@ -20,16 +20,18 @@ export default function Header() {
   const { cartItems } = useCartContext();
   const router = useRouter();
   const getUserInfo = () => {
-    const userString = localStorage.getItem("user");
-    if (userString) {
-      try {
-        const user = JSON.parse(userString);
-        return user;
-      } catch (error) {
-        console.log(error);
+    if (typeof window !== "undefined") {
+      const userString = localStorage.getItem("user");
+      if (userString) {
+        try {
+          const user = JSON.parse(userString);
+          return user;
+        } catch (error) {
+          console.log(error);
+        }
       }
+      return null;
     }
-    return null;
   };
 
   const user = getUserInfo();
